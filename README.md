@@ -1,5 +1,9 @@
 # NodeJS-server-manager
 Host multiples NodeJS app on a server, with reverse-proxy built-in
+## Warning! 
+I build it firstly in a very personal purpose. I've done it quickly to have something working in a small time.
+So, the source code is quite the mess, sorry about that, also, there isn't any documentation, and sadly neither any comment in sources :-(
+
 ## Sum-up
 I'm a big fan of NodeJS, and the thing is I havn't loads of servers to store my apps.
 
