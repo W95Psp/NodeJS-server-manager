@@ -1,0 +1,13 @@
+html
+	head
+		link(rel="stylesheet" type="text/css" href="/static/ng-sortable/ng-sortable.min.css")
+		link(rel='stylesheet' type='text/css' href='/static/style.css')
+		link(rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:700,300')
+	body
+		div#head
+			span(style='display: inline-block; padding-top: 14px;') ReverseProxy
+		div(style='padding: 10px;')
+			h1(style='margin-bottom: 0px;') Login
+			form(action='/login', method='post')
+				span(style='display: inline-block; width: 100px;') Password :
+				input(name='password', type='password')

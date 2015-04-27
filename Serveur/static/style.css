@@ -1,0 +1,176 @@
+html {
+  padding: 0px;
+  margin: 0px;
+}
+html body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Open Sans', sans-serif;
+}
+html body #head {
+  background-color: #1abc9c;
+  height: 40px;
+  font-size: 30px;
+  padding: 14px;
+  margin: 0px;
+}
+html body #notConnected {
+  font-size: 28px;
+  color: #ccc;
+  text-align: center;
+  padding-top: 40px;
+  font-weight: bold;
+}
+html body #selectInstance {
+  background-color: #16a085;
+  padding: 10px;
+  padding-left: 20px;
+  height: 19px;
+  overflow: hidden;
+}
+html body #selectInstance .toolbox {
+  display: inline-block;
+  float: right;
+}
+html body .out {
+  position: absolute;
+  top: 108px;
+  bottom: 45px;
+  overflow: auto;
+  width: 100%;
+}
+html body .out .fromUser {
+  font-size: 90%;
+  color: #808080;
+  font-style: italic;
+  padding-left: 10px;
+}
+html body .out table {
+  width: 100%;
+  border-collapse: collapse;
+}
+html body .out table thead tr td {
+  background-color: #efefef;
+  border-bottom: 1px solid #ddd;
+}
+html body .out table thead tr td.type {
+  width: 50px;
+  overflow: hidden;
+}
+html body .out table thead tr td.when {
+  width: 50px;
+  overflow: hidden;
+}
+html body .out table tbody tr td {
+  border-bottom: 1px dotted #ddd;
+}
+html body .out table tbody tr > td.type {
+  font-size: 75%;
+  width: 50px;
+  color: #808080;
+}
+html body .out table tbody tr > td.content {
+  color: #000;
+}
+html body .out table tbody tr > td.when {
+  text-align: right;
+  width: 50px;
+  color: #808080;
+}
+html body .out table tbody tr > td.when .hour {
+  font-size: 65%;
+}
+html body .out table tbody tr > td.when .date {
+  font-size: 30%;
+}
+html body .out table tbody tr:hover td {
+  background-color: #f5fff5;
+}
+html body .out table tbody tr[type='event'] td {
+  border-bottom: 1px dotted #dde !important;
+}
+html body .out table tbody tr[type='event'] td.type {
+  color: #00f;
+}
+html body .out table tbody tr[type='stderr'] td {
+  border-bottom: 1px dotted #edd !important;
+}
+html body .out table tbody tr[type='stderr'] td.type {
+  color: #f00;
+}
+html body .footer {
+  background-color: #16a085;
+  position: absolute;
+  bottom: 0px;
+  height: 45px;
+  overflow: auto;
+  width: 100%;
+}
+html body .footer .content {
+  margin: 7px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+html body .footer .content table {
+  border-collapse: collapse;
+}
+html body .footer .content table td {
+  width: 30%;
+  text-align: center;
+  color: #fff;
+  font-size: 70%;
+  margin: 0px;
+  padding: 0px;
+}
+html body .footer .content table td .key {
+  color: #ccc;
+}
+html body .footer .content table td .value {
+  color: #fff;
+}
+html body .footer .content .editableContent {
+  display: inline-block;
+  border-radius: 4px;
+  padding: 1px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+html body .footer .content .editableContent .edit {
+  display: none;
+}
+html body .footer .content .editableContent:hover {
+  background-color: rgba(0,0,0,0.4);
+  cursor: default;
+}
+html body .footer .content .editableContent:hover .edit {
+  display: inline-block;
+  margin-right: 12px;
+}
+html body .panel {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 50px;
+}
+html body .panel .content {
+  margin: auto;
+  width: 550px;
+  height: 400px;
+  overflow: auto;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #808080;
+  border-radius: 16px;
+  padding: 14px;
+}
+html body .panel .content .title {
+  position: relative;
+  font-size: 140%;
+}
+html body .panel .content .title button:last-child {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}

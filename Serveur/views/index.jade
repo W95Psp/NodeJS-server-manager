@@ -1,0 +1,74 @@
+html(ng-app='NodeManager')
+	head
+		script(src='/socket.io/socket.io.js')
+		script(src='/static/angular.min.js')
+		script(src='/static/script.js')
+		link(rel='stylesheet' type='text/css' href='/static/style.css')
+		link(rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:700,300')
+	body(ng-controller='ctrl')
+		div#head NodeManager
+		div#connected(ng-show='connected')
+			div#selectInstance
+				select(ng-model="selected", ng-options='azaz.name for azaz in allInstances')
+				div.toolbox(ng-repeat='instance in allInstances', ng-show='selected.path==instance.path')
+					button.run(ng-show='!instance.running', ng-click='launchAction("run", instance.path)') Run
+					button.run(ng-show='instance.running', ng-click='launchAction("stop", instance.path)') Stop
+					button.reload(ng-disable='instance.running', ng-click='launchAction("reload", instance.path)') Reload
+					button.ch Switch
+			div.out(ng-repeat='instance in allInstances', ng-show='selected.path==instance.path')
+				table
+					thead
+						tr
+							td.type
+								select(ng-init='typeFilter="";', ng-model='typeFilter', ng-options='type for type in types')
+							td.content
+								input(ng-model='contentFilter', style='width: 100%;')
+							td.when
+					tbody
+						tr(ng-repeat='data in instance.processOut | reverse | filter : {content: contentFilter, type: typeFilter} ', type='{{data.type}}')
+							td.type {{data.type}}
+							td.content(ng-show='!data.content.action') {{data.content}}!!
+							td.content(ng-show='data.content.action')
+								span {{data.content.action}}
+								span.fromUser(ng-show='data.content.fromUser') [user intervention]
+							td.when
+								div.hour {{ data.when | date : "HH'h'mm'm'ss's'"}}
+								div.date {{ data.when | date : 'dd/MM/yy'}}
+			div.footer(ng-repeat='instance in allInstances', ng-show='selected.path==instance.path')
+				.content
+					table(style='width: 100%;')
+						tr
+							td {{instance.path}}
+							td(ng-show='instance.running')
+								| Running...
+							td(ng-show='!instance.running')
+								| Not running.
+							td 
+								span.editableContent
+									span(ng-show='!editPort')
+										span.edit(ng-click='editPort=true') [edit]
+										span.key Port : 
+										span.value {{instance.conf.port}}
+									input(ng-show='editPort', type='number', style='width: 70px;', ng-model='instance.conf.port', ng-change='setPortOf(instance)')
+									button(ng-show='editPort', ng-click='editPort=false') Ok
+						tr
+							td(colspan='3')
+								span.editableContent.redirect(ng-click='instance.ShowRedirConf = true')
+									span.edit [edit]
+									span.key Redirections : 
+									span.value {{instance.conf.redirect.join(', ')}}
+			div.panel(ng-repeat='instance in allInstances', ng-show='selected.path==instance.path && instance.ShowRedirConf')
+				div.content
+					.title Edit redirections
+						button(ng-click='addRedirForInstance(instance, "nothing")', style='margin-left: 10px;') +
+						button(ng-click='instance.ShowRedirConf = !instance.ShowRedirConf') Close
+					.redirections
+						.redirection(ng-repeat='(k,r) in instance.conf.redirect track by $index')
+							button(ng-click='deleteRedirFromInstance(instance, k)', style='margin-right: 10px;') X
+							span(ng-show='!editMe', ng-click='editMe = true') {{r}}
+							input(ng-show='editMe', ng-keyup="$event.keyCode == 13 && !(editMe=false)", ng-model='instance.conf.redirect[k]', autofocus)
+							button(ng-show='editMe', ng-click='editMe = false') Ok
+		div#notConnected(ng-show='!connected')
+			| Connection...
+			br
+			img(src='/static/images/loading.gif', width=70, style='padding-top: 10px;')

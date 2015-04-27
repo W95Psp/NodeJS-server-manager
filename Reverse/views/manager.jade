@@ -1,0 +1,26 @@
+html(ng-app='NodeManager')
+	head
+		script(src='/static/angular.min.js')
+		script(src='/static/script.js')
+		script(src='/static/ng-sortable/ng-sortable.js')
+		link(rel="stylesheet" type="text/css" href="/static/ng-sortable/ng-sortable.min.css")
+		link(rel='stylesheet' type='text/css' href='/static/style.css')
+		link(rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:700,300')
+	body(ng-controller='ctrl')
+		div#head
+			div(style='display: block-inline; float: right;')
+				button(style='margin: 6px; padding: 6px; margin-top: 15px;', ng-disabled='saved', ng-click='save()')
+					img(src='/static/images/save.png', style='height: 26px;')
+			div(style='display: block-inline;') ReverseProxy
+		ul(data-as-sortable='dragControlListeners', data-ng-model="redirections")
+			li(data-ng-repeat="(k, redirect) in redirections", data-as-sortable-item)
+				div.handle(data-as-sortable-item-handle)
+				button.del(ng-click='delete(redirect);redirections.splice(k, 1)')
+				div.content
+					input(ng-model='redirect.buffers.from').from
+					span(style='color: #CCC;') ↔
+					input(ng-model='redirect.buffers.to').to
+		button(ng-click="add()").add
+		br
+		br
+		

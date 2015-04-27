@@ -1,0 +1,68 @@
+html
+	padding 0px
+	margin 0px
+	body
+		padding 0px
+		margin 0px
+		font-family 'Open Sans', sans-serif
+		#head
+			background-color #16a085
+			height (40px + 14px)
+			font-size 30px
+			padding 14px
+			padding-top 0px
+			margin 0px
+			color white
+			padding-left 84px
+			background-repeat no-repeat
+			background-image url('/static/images/logo.png')
+			background-position 10px 4px
+		ul
+			padding 0px
+			margin 0px
+			li
+				list-style-type none
+				padding 5px
+				border-bottom 1px dotted #DDD
+				div.content
+					text-align center
+					margin-left 40px
+					margin-right 40px
+					input
+						font-family 'Open Sans', sans-serif
+						border 0px
+						font-size 16px
+						width 40%
+						&.from
+							text-align right
+							margin-right 10px
+						&.to
+							margin-left 10px
+				div.handle
+					float right
+					display inline-block
+					width 10px
+					height 16px
+					padding-top 2px
+					background-image url('/static/grip.png')
+		button.del, button.add
+			background-repeat no-repeat
+			background-color transparent
+			border none
+			width 24px
+			height 24px
+			float left
+			opacity 0.4
+			&.del
+				background-image url('/static/images/delete.png')
+			&.add
+				margin 4px
+				background-image url('/static/images/add.png')
+			&:hover
+				opacity 0.7!important
+		button:disabled
+			opacity 0.6
+			border-color transparent
+			background-color transparent
+			img
+				opacity 0.6

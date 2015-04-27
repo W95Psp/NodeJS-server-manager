@@ -1,0 +1,31 @@
+html(ng-app='NodeManager')
+	head
+		script(src='/static/angular.min.js')
+		script(src='/static/script.js')
+		link(rel='stylesheet' type='text/css' href='/static/style.css')
+		link(rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:700,300')
+	body(ng-controller='ctrl')
+		div#head ReverseProxy
+		table
+			tr(ng-repeat='(k, redirect) in redirections')
+				td(style='width: 52px;')
+					button.del(ng-click='delete(redirect);redirections.splice(k, 1)')
+					button.edit(ng-show='!editMode', ng-click='editMode = true;')
+					button.valid(ng-show='editMode', ng-click='editMode = false;edit(redirect)')
+				td(ng-show='!editMode') {{redirect.from[0]}}:{{redirect.from[1]}}
+				td(ng-show='editMode')
+					input(ng-model='redirect.from[0]')
+					| :
+					input(style='width: 72px;', ng-model='redirect.from[1]')
+				td ↔
+				td(ng-show='!editMode') {{redirect.to[0]}}:{{redirect.to[1]}}
+				td(ng-show='editMode') 
+					input(ng-model='redirect.to[0]')
+					| :
+					input(style='width: 72px;', ng-model='redirect.to[1]')
+			tr.noBottomBorder
+				td
+					button(ng-click="redirections.push({from: ['', 1234], to: ['', 1234]});").add
+				td
+				td
+				td
