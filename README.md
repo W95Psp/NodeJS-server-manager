@@ -4,12 +4,23 @@ Host multiples NodeJS app on a server, with reverse-proxy built-in
 I build it firstly in a very personal purpose. I've done it quickly to have something working in a small time.
 So, the source code is quite the mess, sorry about that, also, there isn't any documentation, and sadly neither any comment in sources :-(
 
-## Sum-up
-I'm a big fan of NodeJS, and the thing is I havn't loads of servers to store my apps.
+## (en) Sum-up
+<!--- en -->
+I'm a big fan of NodeJS, and the thing is I haven't loads of servers to store my apps.
 
-Also, to host my apps, I usually create a daemon on a Linux virtual server, but for maintenance, that's not really convenient.
+Thus, to host my apps, I usually create a daemon on a Linux virtual server, but for maintenance, that's not really convenient.
 
 So, I'm developping this app to help people like me to host easily numerous NodeJS apps.
+<!--- /en -->
+
+## (fr) Résumé
+<!--- fr -->
+Je suis très fan de NodeJS, mais pour héberger mes applications, je ne dispose pas d'un grand nombre de serveurs.
+
+Ainsi, pour héberger mes applications, généralement, je crée un démon sur un serveur virtuel sous Linux, mais ce n'est pas vraiment pratique pour la maintenance, entre autre.
+
+Donc je développe cette application pour aider les personnes comme moi à héberger et monitorer facilement de nombreuses applications NodeJS.
+<!--- /fr -->
 
 ## Functionalities
 If I host numerous apps, I also want to let people access it. I have two domain names, but I have something like twenty apps running on my servers. In order to make my apps and websites visible to everybody, I use a reverse proxy.
